@@ -28,13 +28,10 @@ public class MongoDbExampleApplication {
 	CommandLineRunner runner(StudentRepository studentRepository, MongoTemplate mongoTemplate) {
 		return args -> {
 			Address address = new Address("Bulgaria", "Vratza", "3000");
-			Address address2 = new Address("Bulgaria", "Montana", "3400");
 
 			StudentEntity student = new StudentEntity("Kalin", "Kostadinov", "kalin@abv.bg", Gender.MALE, address,
 					List.of("Computer Science"), BigDecimal.TEN, LocalDateTime.now());
 
-			StudentEntity student2 = new StudentEntity("Strahil", "Dimitrov", "straho1@abv.bg", Gender.MALE, address2,
-					List.of("Computer Science"), BigDecimal.TEN, LocalDateTime.now());
 
 			studentRepository.findStudentByEmail("kalin@abv.bg").ifPresentOrElse(s -> {
 				System.out.println("The user is present!");
@@ -42,12 +39,12 @@ public class MongoDbExampleApplication {
 				studentRepository.save(student);
 			});
 
-			usingMongoTemplateAndQuery(studentRepository, mongoTemplate, student);
+			//usingMongoTemplateAndQuery(studentRepository, mongoTemplate, student);
 
 		};
 	}
 
-	private void usingMongoTemplateAndQuery(StudentRepository studentRepository, MongoTemplate mongoTemplate,
+	public void usingMongoTemplateAndQuery(StudentRepository studentRepository, MongoTemplate mongoTemplate,
 			StudentEntity student) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("email").is("kalin@abv.bg"));
