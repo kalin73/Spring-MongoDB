@@ -7,6 +7,7 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -17,11 +18,15 @@ public class MovieService {
         return this.movieRepository.findAll();
     }
 
-    public void addMovie(Movie movie) {
-        this.movieRepository.save(movie);
+    public Movie addMovie(Movie movie) {
+       return this.movieRepository.save(movie);
     }
 
     public Movie getMovieById(ObjectId id) {
         return this.movieRepository.findById(id).get();
+    }
+
+    public Optional<Movie> getMovieByImdbId(String imdbId) {
+        return this.movieRepository.findMovieByImdbId(imdbId);
     }
 }
