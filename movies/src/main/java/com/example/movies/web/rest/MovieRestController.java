@@ -17,12 +17,7 @@ import java.util.Optional;
 public class MovieRestController {
     private final MovieService movieService;
 
-    @PostMapping("/add")
-    public ResponseEntity<List<Movie>> addMovie(@RequestBody Movie movie) {
-        return ResponseEntity.created(URI.create("")).body(this.movieService.allMovies());
-    }
-
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
         return ResponseEntity.ok(this.movieService.allMovies());
     }

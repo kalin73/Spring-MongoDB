@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.net.URI;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -17,8 +18,8 @@ import java.net.URI;
 public class ReviewRestController {
     private final ReviewService reviewService;
 
-    @PostMapping("/add")
-    public ResponseEntity<Review> addReview(@RequestBody String reviewBody, String imdbId) {
-        return ResponseEntity.created(URI.create("")).body(this.reviewService.createReview(reviewBody, imdbId));
+    @PostMapping("/create")
+    public ResponseEntity<Review> create(@RequestBody Map<String, String> payload) {
+        return ResponseEntity.created(URI.create("")).body(this.reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")));
     }
 }

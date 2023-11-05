@@ -18,14 +18,6 @@ public class MovieService {
         return this.movieRepository.findAll();
     }
 
-    public Movie addMovie(Movie movie) {
-       return this.movieRepository.save(movie);
-    }
-
-    public Movie getMovieById(ObjectId id) {
-        return this.movieRepository.findById(id).get();
-    }
-
     public Optional<Movie> getMovieByImdbId(String imdbId) {
         return this.movieRepository.findMovieByImdbId(imdbId);
     }

@@ -2,10 +2,8 @@ package com.example.movies.service;
 
 import com.example.movies.model.entity.Movie;
 import com.example.movies.model.entity.Review;
-import com.example.movies.repository.MovieRepository;
 import com.example.movies.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
@@ -26,9 +24,5 @@ public class ReviewService {
                 .first();
 
         return review;
-    }
-
-    public Review getReview(ObjectId id) {
-        return this.reviewRepository.findById(id).get();
     }
 }
