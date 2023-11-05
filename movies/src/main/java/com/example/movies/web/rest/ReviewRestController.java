@@ -18,7 +18,7 @@ public class ReviewRestController {
     private final ReviewService reviewService;
 
     @PostMapping("/add")
-    public ResponseEntity<Review> addReview(@RequestBody Review review) {
-        return ResponseEntity.created(URI.create("")).body(this.reviewService.addReview(review));
+    public ResponseEntity<Review> addReview(@RequestBody String reviewBody, String imdbId) {
+        return ResponseEntity.created(URI.create("")).body(this.reviewService.createReview(reviewBody, imdbId));
     }
 }
