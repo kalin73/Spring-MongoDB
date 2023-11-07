@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="" />
+    <list default="true" id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="Moving project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2XgdKVmgZLoaFA40CUupTG6YpFU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -26,9 +29,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Kalin/Documents/IntelliJ/Spring-MongoDB/Movies-project/movies",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kalin\Documents\IntelliJ\Spring-MongoDB\Movies-project" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MongoDbExampleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MongoDbExample" />
@@ -47,10 +56,24 @@
       <option name="presentableId" value="Default" />
       <updated>1699054592528</updated>
       <workItem from="1699054593689" duration="24000" />
+      <workItem from="1699353502572" duration="147000" />
     </task>
+    <task id="LOCAL-00001" summary="Moving project">
+      <option name="closed" value="true" />
+      <created>1699353569516</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699353569516</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Moving project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving project" />
   </component>
 </project>
