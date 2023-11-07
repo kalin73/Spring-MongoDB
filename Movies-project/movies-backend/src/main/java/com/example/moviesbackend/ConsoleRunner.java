@@ -1,11 +1,8 @@
 package com.example.moviesbackend;
 
-import com.example.moviesbackend.model.entity.Movie;
 import com.example.moviesbackend.repository.MovieRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
