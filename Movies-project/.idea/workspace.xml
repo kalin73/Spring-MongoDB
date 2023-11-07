@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb0c0cb-831d-48c7-992b-5b89b15ee652" name="Changes" comment="Renaming backend project directory">
-      <change beforePath="$PROJECT_DIR$/.idea/Movies-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Movies-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="aeb0c0cb-831d-48c7-992b-5b89b15ee652" name="Changes" comment="removing project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/MoviesApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/model/entity/Movie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/model/entity/Review.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/repository/MovieRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/repository/ReviewRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/service/MovieService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/service/ReviewService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/web/rest/MovieRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/java/com/example/movies/web/rest/ReviewRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies-backend/src/test/java/com/example/movies/MoviesApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,24 +26,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kalin/Documents/IntelliJ/Spring-MongoDB/Movies-project&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Kalin/Documents/IntelliJ/Spring-MongoDB/Movies-project/movies-backend",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/movie-frontend/package.json" />
@@ -99,6 +78,8 @@
       <workItem from="1699357200485" duration="257000" />
       <workItem from="1699357477890" duration="54000" />
       <workItem from="1699357551338" duration="222000" />
+      <workItem from="1699357802095" duration="112000" />
+      <workItem from="1699357926107" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -124,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699355883968</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removing project">
+      <option name="closed" value="true" />
+      <created>1699357877386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699357877386</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="Renaming backend project directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renaming backend project directory" />
+    <MESSAGE value="removing project" />
+    <option name="LAST_COMMIT_MESSAGE" value="removing project" />
   </component>
 </project>
