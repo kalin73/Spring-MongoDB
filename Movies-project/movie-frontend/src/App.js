@@ -9,6 +9,7 @@ import Header from './components/header/Header';
 import Trailer from './components/trailer/Trailer';
 import Reviews from './components/reviews/Reviews';
 import NotFound from './components/notFound/NotFound';
+import Register from './components/register/Register';
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
                     <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
                     <Route path="/Reviews/:movieId" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
                     <Route path="*" element = {<NotFound/>}></Route>
+                    <Route path="/register" element={<Register />}></Route>
                 </Route>
             </Routes>
 
