@@ -1,0 +1,33 @@
+.registerTitle{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.registerTitle input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    margin-left: 670px;
+}
+
+.input-group input{
+    width: 30%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+}
+
+.input-group [type="submit"]{
+    background: rgba(7, 168, 252, 0.89);
+    color: #FFF;
+}
+
+.input-group [type="submit"]:hover{
+    background: rgba(7, 252, 91, 0.71);
+    color: #FFF;
+}
