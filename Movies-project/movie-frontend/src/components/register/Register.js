@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import api from '../../api/axiosConfig';
 import './Register.css';
 
@@ -18,6 +18,9 @@ const Register = () => {
                 .then(res => {
                     if(res.data === 'exists'){
                         alert('User already exists');
+                    }
+                    else{
+                        <Link to={"./Home"}></Link>
                     }
                 })
                 .catch(e => {
