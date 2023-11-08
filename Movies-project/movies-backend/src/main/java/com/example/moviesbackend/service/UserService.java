@@ -16,7 +16,7 @@ public class UserService {
 
     public String registerUser(RegisterForm registerForm) {
         if (this.userRepository.findUserByEmail(registerForm.getEmail()).isPresent()) {
-            return "exist";
+            return "exists";
         }
 
         User user = new User();

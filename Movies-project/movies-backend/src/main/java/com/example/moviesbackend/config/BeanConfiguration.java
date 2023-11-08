@@ -13,7 +13,8 @@ import org.springframework.web.context.annotation.SessionScope;
 public class BeanConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**").permitAll());
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**").permitAll())
+                .csrf(token -> token.disable());
 
         return httpSecurity.build();
     }
