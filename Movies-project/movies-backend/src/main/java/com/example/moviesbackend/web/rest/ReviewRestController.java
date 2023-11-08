@@ -1,6 +1,6 @@
 package com.example.moviesbackend.web.rest;
 
-import com.example.moviesbackend.model.entity.Review;
+import com.example.moviesbackend.model.dto.ReviewDto;
 import com.example.moviesbackend.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class ReviewRestController {
     private final ReviewService reviewService;
 
     @PostMapping
-    public ResponseEntity<Review> create(@RequestBody Map<String, String> payload) {
+    public ResponseEntity<ReviewDto> create(@RequestBody Map<String, String> payload) {
         return ResponseEntity.created(URI.create("")).body(this.reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")));
     }
 }
