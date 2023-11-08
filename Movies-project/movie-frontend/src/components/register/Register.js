@@ -14,7 +14,7 @@ const Register = () => {
         e.preventDefault();
 
         try{
-            await api.post("api/v1/auth/register", user, email, password)
+            await api.post("api/v1/auth/register", {user, email, password})
                 .then(res => {
                     if(res.data === 'exists'){
                         alert('User already exists');
