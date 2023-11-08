@@ -1,17 +1,22 @@
 package com.example.moviesbackend.utils;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class LoggedUser {
     private String username;
     private String email;
 
-    public void clearFields(){
+    public LoggedUser() {
+        this.email = "anonymous@gmail.com";
+    }
+
+    public void clearFields() {
         this.username = null;
-        this.email = null;
+        this.email = "anonymous@gmail.com";
     }
 }

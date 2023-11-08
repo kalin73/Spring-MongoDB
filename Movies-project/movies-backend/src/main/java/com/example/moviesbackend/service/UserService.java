@@ -1,6 +1,7 @@
 package com.example.moviesbackend.service;
 
 import com.example.moviesbackend.model.dto.RegisterForm;
+import com.example.moviesbackend.model.dto.UserDto;
 import com.example.moviesbackend.model.entity.User;
 import com.example.moviesbackend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,9 @@ public class UserService {
         this.userRepository.save(user);
 
         return "notexist";
+    }
+
+    public UserDto getUserByEmail(String email){
+        return UserDto.mapToUserDto(this.userRepository.findUserByEmail(email).get());
     }
 }
