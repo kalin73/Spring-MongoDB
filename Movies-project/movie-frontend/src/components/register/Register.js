@@ -20,7 +20,8 @@ const Register = () => {
                         alert('User already exists');
                     }
                     else{
-                        <Link to={"./Home"}></Link>
+                        alert('Register complete!');
+                        history("/login", {state: {id: email}})
                     }
                 })
                 .catch(e => {
