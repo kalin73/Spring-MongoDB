@@ -16,7 +16,7 @@ function Login() {
             await api.post('api/v1/auth/login', {email, password})
                 .then(res => {
                     if (res.data === 'exists') {
-                        history("/home", {state: {id: email}})
+                        history("/", {state: {id: email}})
                     } else {
                         alert("User hove not register")
                     }
