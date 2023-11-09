@@ -22,8 +22,9 @@ const Reviews = ({getMovieData, movie, reviews, setReviews}) => {
 
         try {
             const response = await api.post("/api/v1/reviews", {reviewBody: rev.value, imdbId: movieId});
+            const data = response.data;
 
-            const updatedReviews = [...reviews, {body: rev.value}];
+            const updatedReviews = [...reviews, {username: data.username, body: rev.value}];
 
             rev.value = "";
 
