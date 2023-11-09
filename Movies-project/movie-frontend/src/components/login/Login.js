@@ -1,21 +1,22 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import api from '../../api/axiosConfig';
+import './Login.css';
 
 function Login() {
 
     const history = useNavigate();
-    const [user, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     async function submit(e) {
         e.preventDefault();
 
         try {
-            await api.post('api/v1/auth/login', {user, password})
+            await api.post('api/v1/auth/login', {email, password})
                 .then(res => {
                     if (res.data === 'exists') {
-                        history("/home", {state: {id: user}})
+                        history("/home", {state: {id: email}})
                     } else {
                         alert("User hove not register")
                     }
@@ -39,11 +40,11 @@ function Login() {
             <form action="POST">
 
                 <div className="input-group">
-                    <label>Username</label>
+                    <label>Email</label>
                     <input
-                        type="text"
+                        type="email"
                         onChange={(e) => {
-                            setUsername(e.target.value)
+                            setEmail(e.target.value)
                         }}
                         placeholder="Username"
                     />
