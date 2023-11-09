@@ -64,7 +64,7 @@ const Reviews = ({getMovieData, movie, reviews, setReviews}) => {
                             return (
                                 <>
                                     <Row>
-                                        <Col>{r.body}</Col>
+                                        <Col>{r.username + ": " + r.body}</Col>
                                     </Row>
                                     <Row>
                                         <Col>
