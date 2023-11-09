@@ -6,7 +6,7 @@ import './Register.css';
 const Register = () => {
 
     const history = useNavigate();
-    const [user, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,7 +14,7 @@ const Register = () => {
         e.preventDefault();
 
         try{
-            await api.post("api/v1/auth/register", {user, email, password})
+            await api.post("api/v1/auth/register", {username, email, password})
                 .then(res => {
                     if(res.data === 'exists'){
                         alert('User already exists');
