@@ -6,6 +6,9 @@ import com.example.moviesbackend.model.entity.Review;
 import com.example.moviesbackend.model.entity.User;
 import com.example.moviesbackend.repository.ReviewRepository;
 import com.example.moviesbackend.repository.UserRepository;
+
+import static com.example.moviesbackend.utils.Constants.*;
+
 import com.example.moviesbackend.utils.LoggedUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,15 +26,9 @@ public class ReviewService {
 
     public ReviewDto createReview(String reviewBody, String imdbId) {
         User user;
+        user = userRepository.findUserByEmail(loggedUser.getEmail()).get();
 
-        if (loggedUser.getUsername() == null) {
-            user = userRepository.findUserByEmail("anonymous@gmail.com").get();
-
-        } else {
-            user = userRepository.findUserByEmail(loggedUser.getEmail()).get();
-
-        }
-        Review review = new Review(reviewBody,user);
+        Review review = new Review(reviewBody, user);
         review = this.reviewRepository.save(review);
 
         mongoTemplate.update(Movie.class)

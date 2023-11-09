@@ -8,15 +8,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoggedUser {
-    private String username;
-    private String email;
+    private String username = Constants.DEFAULT_USERNAME;
+    private String email = Constants.DEFAULT_EMAIL;
 
     public LoggedUser() {
         this.clearFields();
     }
 
     public void clearFields() {
-        this.username = "Anonymous";
-        this.email = "anonymous@gmail.com";
+        this.username = Constants.DEFAULT_USERNAME;
+        this.email = Constants.DEFAULT_EMAIL;
     }
 }
