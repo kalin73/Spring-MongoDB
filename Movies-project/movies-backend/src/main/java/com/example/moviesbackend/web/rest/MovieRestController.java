@@ -1,7 +1,6 @@
 package com.example.moviesbackend.web.rest;
 
 import com.example.moviesbackend.model.dto.MovieDto;
-import com.example.moviesbackend.model.entity.Movie;
 import com.example.moviesbackend.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +16,9 @@ public class MovieRestController {
     private final MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies() {
-        return ResponseEntity.ok(this.movieService.allMovies());
+    public ResponseEntity<List<MovieDto>> getAllMovies() {
+        List<MovieDto> list = this.movieService.allMovies();
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{imdbId}")
