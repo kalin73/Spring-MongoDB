@@ -12,11 +12,11 @@ public class LoggedUser {
     private String email;
 
     public LoggedUser() {
-        this.email = "anonymous@gmail.com";
+        this.clearFields();
     }
 
     public void clearFields() {
-        this.username = null;
+        this.username = "Anonymous";
         this.email = "anonymous@gmail.com";
     }
 }

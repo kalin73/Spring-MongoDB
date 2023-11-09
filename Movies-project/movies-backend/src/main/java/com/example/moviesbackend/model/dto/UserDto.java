@@ -1,6 +1,6 @@
 package com.example.moviesbackend.model.dto;
 
-import com.example.moviesbackend.model.entity.User;
+import com.example.moviesbackend.utils.LoggedUser;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,11 +9,15 @@ import lombok.Data;
 public class UserDto {
     private String username;
     private String email;
+    private boolean isLogged;
 
-    public static UserDto mapToUserDto(User user) {
+    public static UserDto mapToUserDto(LoggedUser loggedUser) {
+        boolean logged = !loggedUser.getUsername().equals("Anonymous");
+
         return UserDto.builder()
-                .email(user.getEmail())
-                .username(user.getUsername())
+                .email(loggedUser.getEmail())
+                .username(loggedUser.getUsername())
+                .isLogged(logged)
                 .build();
     }
 }

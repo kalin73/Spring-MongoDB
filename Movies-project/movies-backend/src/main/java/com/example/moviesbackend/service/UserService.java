@@ -58,7 +58,7 @@ public class UserService {
         loggedUser.clearFields();
     }
 
-    public UserDto getUserByEmail(String email) {
-        return UserDto.mapToUserDto(this.userRepository.findUserByEmail(email).get());
+    public UserDto getLoggedUser() {
+        return UserDto.mapToUserDto(loggedUser);
     }
 }
