@@ -1,19 +1,29 @@
 package com.example.moviesbackend.service;
 
+import com.example.moviesbackend.model.dto.LoginForm;
 import com.example.moviesbackend.model.dto.RegisterForm;
 import com.example.moviesbackend.model.dto.UserDto;
 import com.example.moviesbackend.model.entity.User;
 import com.example.moviesbackend.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import com.example.moviesbackend.utils.LoggedUser;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
+
+    private final LoggedUser loggedUser;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, LoggedUser loggedUser) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.loggedUser = loggedUser;
+    }
 
     public String registerUser(RegisterForm registerForm) {
         if (this.userRepository.findUserByEmail(registerForm.getEmail()).isPresent()) {
@@ -30,7 +40,25 @@ public class UserService {
         return "notexist";
     }
 
-    public UserDto getUserByEmail(String email){
+    public String loginUser(LoginForm loginForm) {
+        Optional<User> user = this.userRepository.findUserByEmail(loginForm.getEmail());
+        boolean passwordMatch = user.filter(value -> passwordEncoder.matches(loginForm.getPassword(), value.getPassword())).isPresent();
+
+        if (passwordMatch) {
+            loggedUser.setEmail(user.get().getEmail());
+            loggedUser.setUsername(user.get().getUsername());
+
+            return "exists";
+        }
+
+        return "notexist";
+    }
+
+    public void logOut() {
+        loggedUser.clearFields();
+    }
+
+    public UserDto getUserByEmail(String email) {
         return UserDto.mapToUserDto(this.userRepository.findUserByEmail(email).get());
     }
 }

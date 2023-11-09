@@ -1,5 +1,6 @@
 package com.example.moviesbackend.web.rest;
 
+import com.example.moviesbackend.model.dto.LoginForm;
 import com.example.moviesbackend.model.dto.RegisterForm;
 import com.example.moviesbackend.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -16,5 +17,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterForm registerForm) {
         return ResponseEntity.ok(this.userService.registerUser(registerForm));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginForm loginForm){
+        return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 }
