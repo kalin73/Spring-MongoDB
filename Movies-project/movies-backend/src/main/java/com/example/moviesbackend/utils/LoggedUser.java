@@ -2,18 +2,17 @@ package com.example.moviesbackend.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class LoggedUser {
-    private String username = Constants.DEFAULT_USERNAME;
-    private String email = Constants.DEFAULT_EMAIL;
+    private String username;
+    private String email;
 
-    public LoggedUser() {
-        this.clearFields();
-    }
 
     public void clearFields() {
         this.username = Constants.DEFAULT_USERNAME;

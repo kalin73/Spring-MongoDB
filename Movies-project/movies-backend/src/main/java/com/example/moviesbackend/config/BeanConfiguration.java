@@ -1,5 +1,6 @@
 package com.example.moviesbackend.config;
 
+import com.example.moviesbackend.utils.Constants;
 import com.example.moviesbackend.utils.LoggedUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.context.annotation.SessionScope;
 
 @Configuration
 public class BeanConfiguration {
@@ -21,9 +21,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    @SessionScope
     LoggedUser loggedUser() {
-        return new LoggedUser();
+        return new LoggedUser(Constants.DEFAULT_USERNAME, Constants.DEFAULT_EMAIL);
     }
 
     @Bean
