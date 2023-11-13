@@ -4,7 +4,6 @@ import com.example.moviesbackend.model.dto.LoginForm;
 import com.example.moviesbackend.model.dto.RegisterForm;
 import com.example.moviesbackend.model.dto.UserDto;
 import com.example.moviesbackend.model.entity.Confirmation;
-import com.example.moviesbackend.model.entity.Movie;
 import com.example.moviesbackend.model.entity.User;
 import com.example.moviesbackend.repository.ConfirmationRepository;
 import com.example.moviesbackend.repository.UserRepository;
@@ -61,7 +60,7 @@ public class UserService {
 
         mongoTemplate.update(User.class)
                 .matching(Criteria.where("email").is(userEmail))
-                .apply(new Update().push("isEnabled").value(true))
+                .apply(new Update().set("isEnabled",true))
                 .first();
 
     }
