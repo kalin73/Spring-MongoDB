@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class AuthController {
     private final UserService userService;
 
@@ -19,13 +19,21 @@ public class AuthController {
         return ResponseEntity.ok(this.userService.registerUser(registerForm));
     }
 
+    @GetMapping
+    public ResponseEntity<String> verifyEmail(@RequestParam("token")String token){
+        this.userService.verifyToken(token);
+
+        return ResponseEntity.ok("Verified");
+    }
+
+
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginForm loginForm){
+    public ResponseEntity<String> login(@RequestBody LoginForm loginForm) {
         return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 
     @GetMapping("/logout")
-    public ResponseEntity<String> logout(){
+    public ResponseEntity<String> logout() {
         this.userService.logOut();
 
         return ResponseEntity.ok("");
