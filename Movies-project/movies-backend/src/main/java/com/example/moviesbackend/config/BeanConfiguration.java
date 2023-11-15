@@ -1,24 +1,39 @@
 package com.example.moviesbackend.config;
 
+import com.example.moviesbackend.repository.UserRepository;
+import com.example.moviesbackend.service.AuthenticatedUserService;
 import com.example.moviesbackend.utils.Constants;
 import com.example.moviesbackend.utils.LoggedUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 public class BeanConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**").permitAll())
-                .csrf(token -> token.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/v1/movies").authenticated())
+                .httpBasic(Customizer.withDefaults())
+                .csrf(CsrfConfigurer::disable);
 
         return httpSecurity.build();
+    }
+
+    @Bean
+    UserDetailsService userDetails(UserRepository userRepository){
+        return new AuthenticatedUserService(userRepository);
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
@@ -29,10 +44,5 @@ public class BeanConfiguration {
     @Bean
     ModelMapper modelMapper() {
         return new ModelMapper();
-    }
-
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }

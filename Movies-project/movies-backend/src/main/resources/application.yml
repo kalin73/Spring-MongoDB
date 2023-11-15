@@ -24,3 +24,9 @@ spring:
             required: true
     verify:
       host: http://localhost:8080
+
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
