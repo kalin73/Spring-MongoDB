@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
+
 @RestController
 @RequestMapping("/api/v1/loggedUser")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class UserRestController {
     private final UserService userService;
 

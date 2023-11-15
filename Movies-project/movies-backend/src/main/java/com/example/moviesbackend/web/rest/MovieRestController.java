@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/movies")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class MovieRestController {
     private final MovieService movieService;
 

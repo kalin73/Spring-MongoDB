@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.net.URI;
 import java.util.Map;
 
+import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
+
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/api/v1/reviews")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class ReviewRestController {
     private final ReviewService reviewService;
 
