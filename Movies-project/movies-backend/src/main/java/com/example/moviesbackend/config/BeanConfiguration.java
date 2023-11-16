@@ -17,7 +17,10 @@ import org.springframework.security.web.SecurityFilterChain;
 public class BeanConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**").permitAll())
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**", "/login","/").permitAll())
+                .formLogin(login -> login.loginPage("/login")
+                        .successForwardUrl("/")
+                        .failureForwardUrl("/login-error"))
                 .csrf(token -> token.disable());
 
         return httpSecurity.build();
