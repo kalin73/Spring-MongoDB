@@ -4,17 +4,13 @@ import com.example.moviesbackend.model.dto.UserDto;
 import com.example.moviesbackend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
-
 @RestController
 @RequestMapping("/api/v1/loggedUser")
 @RequiredArgsConstructor
-@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class UserRestController {
     private final UserService userService;
 

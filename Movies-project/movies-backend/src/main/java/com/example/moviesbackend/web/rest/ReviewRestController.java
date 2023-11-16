@@ -5,7 +5,6 @@ import com.example.moviesbackend.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.net.URI;
 import java.util.Map;
 
-import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
-
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/api/v1/reviews")
-@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class ReviewRestController {
     private final ReviewService reviewService;
 

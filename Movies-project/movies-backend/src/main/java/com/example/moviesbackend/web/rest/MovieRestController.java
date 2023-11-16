@@ -4,16 +4,16 @@ import com.example.moviesbackend.model.dto.MovieDto;
 import com.example.moviesbackend.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/movies")
-@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class MovieRestController {
     private final MovieService movieService;
 

@@ -7,12 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
-@CrossOrigin(origins = FRONT_END_DOMAIN_URL)
 public class AuthController {
     private final UserService userService;
 
