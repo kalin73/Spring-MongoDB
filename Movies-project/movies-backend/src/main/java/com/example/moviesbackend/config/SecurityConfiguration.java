@@ -20,8 +20,8 @@ public class SecurityConfiguration {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/api/**", "/auth/login", "/").permitAll())
                 .formLogin(login -> login.loginPage("/auth/login")
-                        .defaultSuccessUrl("/api/v1/movies")
-                        .failureForwardUrl("/login-error"))
+                        .defaultSuccessUrl("/api/v1/movies", true)
+                        .failureForwardUrl("/api/v1/auth/login-error"))
                 .cors(Customizer.withDefaults())
                 .csrf(CsrfConfigurer::disable);
 

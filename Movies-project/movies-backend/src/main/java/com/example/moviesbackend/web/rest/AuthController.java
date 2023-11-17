@@ -31,6 +31,11 @@ public class AuthController {
         return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 
+    @PostMapping("/login-error")
+    public String loginError() {
+        return "Login Error!";
+    }
+
     @GetMapping("/logout")
     public ResponseEntity<String> logout() {
         this.userService.logOut();
