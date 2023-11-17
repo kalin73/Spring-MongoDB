@@ -18,7 +18,7 @@ function Login() {
                     if (res.data === 'exists') {
                         history("/", {state: {id: email}})
                     } else {
-                        alert("User hove not register")
+                        alert("Invalid username or password!")
                     }
                 })
                 .catch(e => {
