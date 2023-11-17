@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="Moving project" />
+    <list default="true" id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="Moving project">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +31,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Kalin/Documents/IntelliJ/Spring-MongoDB/Movies-project/movies",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/VS PROJECT/Spring-MongoDB/Movies-project/movie-frontend",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -57,6 +60,7 @@
       <updated>1699054592528</updated>
       <workItem from="1699054593689" duration="24000" />
       <workItem from="1699353502572" duration="147000" />
+      <workItem from="1700225088729" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="Moving project">
       <option name="closed" value="true" />
