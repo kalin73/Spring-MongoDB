@@ -3,12 +3,11 @@ package com.example.moviesbackend.web.rest;
 import com.example.moviesbackend.model.dto.LoginForm;
 import com.example.moviesbackend.model.dto.RegisterForm;
 import com.example.moviesbackend.service.UserService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
     private final UserService userService;
-
-    private final AuthenticationManager authenticationManager;
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterForm registerForm) {
@@ -32,11 +29,14 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginForm loginForm) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginForm.getEmail(),
-                loginForm.getPassword()));
+    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
+        try {
+            request.login(loginForm.getEmail(), loginForm.getPassword());
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        } catch (ServletException e) {
+            return new ResponseEntity<>("notexists", HttpStatusCode.valueOf(401));
+
+        }
 
         return ResponseEntity.ok("exists");
     }
