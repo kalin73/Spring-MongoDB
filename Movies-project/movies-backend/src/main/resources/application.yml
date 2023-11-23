@@ -24,6 +24,10 @@ spring:
             required: true
     verify:
       host: http://localhost:8080
+      
+security:
+  jwt:
+    secret-key: verysecretkeydonttellanybody
 
 logging:
   level:

@@ -21,9 +21,12 @@ public class AuthenticatedUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User userEntity = this.userRepository.findUserByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return new AuthenticatedUser(userEntity.getEmail(),
-                userEntity.getPassword(),
-                List.of(new SimpleGrantedAuthority("ROLE_")),
-                userEntity.getUsername());
+        return AuthenticatedUser.builder()
+                .id(userEntity.getId().toString())
+                .email(userEntity.getEmail())
+                .password(userEntity.getPassword())
+                .authorities(List.of(new SimpleGrantedAuthority("ROLE_")))
+                .username(userEntity.getUsername())
+                .build();
     }
 }
