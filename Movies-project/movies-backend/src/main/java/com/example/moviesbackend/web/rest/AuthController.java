@@ -1,14 +1,11 @@
 package com.example.moviesbackend.web.rest;
 
 import com.example.moviesbackend.model.dto.LoginForm;
-import com.example.moviesbackend.model.dto.LoginResponse;
 import com.example.moviesbackend.model.dto.RegisterForm;
+import com.example.moviesbackend.model.dto.UserDto;
 import com.example.moviesbackend.service.AuthService;
 import com.example.moviesbackend.service.UserService;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,8 +29,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginForm loginForm) {
-        return this.userService.loginUser(loginForm);
+    public ResponseEntity<UserDto> login(@RequestBody LoginForm loginForm) {
+        return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 
 

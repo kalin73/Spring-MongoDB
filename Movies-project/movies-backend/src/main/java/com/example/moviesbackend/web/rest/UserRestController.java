@@ -17,7 +17,6 @@ public class UserRestController {
     @GetMapping
     public ResponseEntity<UserDto> getLoggedUser() {
         UserDto user = this.userService.getLoggedUser();
-        System.out.println(user.isLogged());
 
         return ResponseEntity.ok(user);
     }

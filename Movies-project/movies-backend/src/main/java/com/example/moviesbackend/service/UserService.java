@@ -65,7 +65,7 @@ public class UserService {
 
     }
 
-    public String loginUser(LoginForm loginForm) {
+    public UserDto loginUser(LoginForm loginForm) {
         Optional<User> user = this.userRepository.findUserByEmail(loginForm.getEmail());
         boolean passwordMatch = user.filter(value -> passwordEncoder.matches(loginForm.getPassword(), value.getPassword())).isPresent();
 
@@ -73,10 +73,10 @@ public class UserService {
             loggedUser.setEmail(user.get().getEmail());
             loggedUser.setUsername(user.get().getUsername());
 
-            return "exists";
+            return getLoggedUser();
         }
 
-        return "notexist";
+        return getLoggedUser();
     }
 
     public void logOut() {
