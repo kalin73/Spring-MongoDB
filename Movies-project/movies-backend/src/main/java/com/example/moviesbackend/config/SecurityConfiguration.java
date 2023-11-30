@@ -32,8 +32,9 @@ public class SecurityConfiguration {
         httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/api/v1/reviews", "/api/v1/movies", "/api/v1/auth/**").permitAll()
-                        .requestMatchers("/api/v1/movies/**").authenticated())
+//                        .requestMatchers("/api/v1/reviews", "/api/v1/movies", "/api/v1/auth/**").permitAll()
+//                        .requestMatchers("/api/v1/movies/**").authenticated())
+                .anyRequest().permitAll())
                 .formLogin(FormLoginConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .securityMatcher("/**")

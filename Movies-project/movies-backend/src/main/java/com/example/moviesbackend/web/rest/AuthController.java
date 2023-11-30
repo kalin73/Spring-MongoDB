@@ -5,7 +5,10 @@ import com.example.moviesbackend.model.dto.LoginResponse;
 import com.example.moviesbackend.model.dto.RegisterForm;
 import com.example.moviesbackend.service.AuthService;
 import com.example.moviesbackend.service.UserService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +31,12 @@ public class AuthController {
         return ResponseEntity.ok("Verified");
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
-        LoginResponse response = this.authService.login(loginForm.getEmail(), loginForm.getPassword());
-
-        return ResponseEntity.ok(response);
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
+//        LoginResponse response = this.authService.login(loginForm.getEmail(), loginForm.getPassword());
+//
+//        return ResponseEntity.ok(response);
+//    }
 
     @PostMapping("/login-error")
     public String loginError() {
@@ -46,17 +49,16 @@ public class AuthController {
     }
 
 
-    // ----- Alternative login method
-    //    @PostMapping("/login")
-//    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
-//        try {
-//            request.login(loginForm.getEmail(), loginForm.getPassword());
-//
-//        } catch (ServletException e) {
-//            return new ResponseEntity<>("notexists", HttpStatusCode.valueOf(401));
-//
-//        }
-//
-//        return ResponseEntity.ok("exists");
-//    }
+        @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
+        try {
+            request.login(loginForm.getEmail(), loginForm.getPassword());
+
+        } catch (ServletException e) {
+            return new ResponseEntity<>("notexists", HttpStatusCode.valueOf(401));
+
+        }
+
+        return ResponseEntity.ok("exists");
+    }
 }
