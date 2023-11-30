@@ -28,9 +28,3 @@ spring:
 security:
   jwt:
     secret-key: verysecretkeydonttellanybody
-
-logging:
-  level:
-    org:
-      springframework:
-        security: debug

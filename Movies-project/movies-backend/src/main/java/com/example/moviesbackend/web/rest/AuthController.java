@@ -31,6 +31,12 @@ public class AuthController {
         return ResponseEntity.ok("Verified");
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody LoginForm loginForm) {
+        return this.userService.loginUser(loginForm);
+    }
+
+
 //    @PostMapping("/login")
 //    public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
 //        LoginResponse response = this.authService.login(loginForm.getEmail(), loginForm.getPassword());
@@ -49,16 +55,16 @@ public class AuthController {
     }
 
 
-        @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
-        try {
-            request.login(loginForm.getEmail(), loginForm.getPassword());
-
-        } catch (ServletException e) {
-            return new ResponseEntity<>("notexists", HttpStatusCode.valueOf(401));
-
-        }
-
-        return ResponseEntity.ok("exists");
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
+//        try {
+//            request.login(loginForm.getEmail(), loginForm.getPassword());
+//
+//        } catch (ServletException e) {
+//            return new ResponseEntity<>("notexists", HttpStatusCode.valueOf(401));
+//
+//        }
+//
+//        return ResponseEntity.ok("exists");
+//    }
 }
