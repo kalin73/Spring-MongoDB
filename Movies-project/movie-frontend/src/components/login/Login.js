@@ -1,9 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import api from '../../api/axiosConfig';
 import './Login.css';
+import { AuthContext } from "../../context/authContext";
 
 function Login() {
+
+    const { login } = useContext(AuthContext);
 
     const history = useNavigate();
     const [email, setEmail] = useState('');
