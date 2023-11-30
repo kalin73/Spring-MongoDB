@@ -2,32 +2,35 @@ import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import api from '../../api/axiosConfig';
 import './Login.css';
-import { AuthContext } from "../../context/authContext";
+import {AuthContext} from "../../context/authContext";
 
 function Login() {
-
-    const { login } = useContext(AuthContext);
-
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const {login} = useContext(AuthContext);
 
     async function submit(e) {
         e.preventDefault();
 
         try {
-            await api.post('api/v1/auth/login', {email, password})
-                .then(res => {
-                    if (res.data === 'exists') {
-                        history("/", {state: {id: email}})
-                    } else {
-                        alert("Invalid username or password!")
-                    }
-                })
-                .catch(e => {
-                    alert("Wrong details");
-                    console.log(e);
-                })
+            // await api.post('api/v1/auth/login', {email, password})
+            //     .then(res => {
+            //         if (res.data === 'exists') {
+            //
+            //         } else {
+            //             alert("Invalid username or password!")
+            //         }
+            //     })
+
+            await login({email, password});
+            history("/", {state: {id: email}});
+
+            // .catch(e => {
+            //     alert("Wrong details");
+            //     console.log(e);
+            // })
         } catch (e) {
             console.log(e);
         }

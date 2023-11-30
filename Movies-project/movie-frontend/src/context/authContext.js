@@ -4,18 +4,22 @@ import api from "../api/axiosConfig";
 
 export const AuthContext = createContext();
 
-export const AuthContexProvider = ({children}) => {
+export const AuthContextProvider = ({children}) => {
     let user = {};
 
     api.get("api/v1/loggedUser")
         .then(res => {
-            user = res.data;
+            setCurrentUser(res.data);
         })
-    const [currentUser, setCurrentUser] = useState(user);
 
-    const login = async (email, password) => {
-        const res = await axios.post('api/v1/auth/login', email, password);
+    const [currentUser, setCurrentUser] = useState({});
+
+
+    const login = async (inputs) => {
+        const res = await api.post('api/v1/auth/login', inputs);
         setCurrentUser(res.data);
+
+        console.log(currentUser);
     };
 
     const logout = async (inputs) => {
@@ -23,9 +27,9 @@ export const AuthContexProvider = ({children}) => {
         setCurrentUser(null);
     };
 
-    useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(currentUser));
-    }, [currentUser]);
+    // useEffect(() => {
+    //     localStorage.setItem("user", JSON.stringify(currentUser));
+    // }, [currentUser]);
 
     return (
         <AuthContext.Provider value={{currentUser, login, logout}}>

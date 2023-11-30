@@ -11,7 +11,7 @@ import Reviews from './components/reviews/Reviews';
 import NotFound from './components/notFound/NotFound';
 import Register from './components/register/Register';
 import Login from "./components/login/Login";
-import {AuthContexProvider} from "./context/authContext";
+import {AuthContextProvider} from "./context/authContext";
 
 function App() {
 
@@ -61,7 +61,7 @@ function App() {
     },[])
 
     return (
-        <AuthContexProvider>
+        <AuthContextProvider>
             <div className="App">
                 <Header/>
                 <Routes>
@@ -75,7 +75,7 @@ function App() {
                     </Route>
                 </Routes>
             </div>
-        </AuthContexProvider>
+        </AuthContextProvider>
     );
 }
 
