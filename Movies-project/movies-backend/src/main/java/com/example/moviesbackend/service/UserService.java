@@ -79,8 +79,10 @@ public class UserService {
         return getLoggedUser();
     }
 
-    public void logOut() {
+    public UserDto logOut() {
         loggedUser.clearFields();
+
+        return getLoggedUser();
     }
 
     public UserDto getLoggedUser() {

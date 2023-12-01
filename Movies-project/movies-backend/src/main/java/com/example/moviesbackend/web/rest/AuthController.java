@@ -33,6 +33,11 @@ public class AuthController {
         return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 
+    @GetMapping("/logout")
+    public ResponseEntity<UserDto> logout() {
+        return ResponseEntity.ok(this.userService.logOut());
+    }
+
 
 //    @PostMapping("/login")
 //    public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
