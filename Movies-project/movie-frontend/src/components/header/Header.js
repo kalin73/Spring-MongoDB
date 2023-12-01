@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faVideoSlash} from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
@@ -9,9 +9,15 @@ import {Link, NavLink} from "react-router-dom";
 import {AuthContext} from "../../context/authContext";
 
 const Header = () => {
-    const [auth, setAuth] = useState(false);
-    const [email, setEmail] = useState('');
-    const { currentUser } = useContext(AuthContext);
+    const {currentUser} = useContext(AuthContext);
+    const {logout} = useContext(AuthContext);
+
+    async function logoutFunc(e) {
+        e.preventDefault();
+
+        await logout();
+    }
+
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -33,10 +39,9 @@ const Header = () => {
                         {
                             currentUser.logged ?
                                 <div>
-                                    <Button variant="outline-info" className="me-2"><Link
-                                        to={"./Logout"}>Logout</Link></Button>
+                                    <Button variant="outline-info" className="me-2" onClick={logoutFunc}><Link
+                                        to={"/"}>Logout</Link></Button>
                                 </div>
-
                                 :
                                 <div>
                                     <Button variant="outline-info" className="me-2"><Link
