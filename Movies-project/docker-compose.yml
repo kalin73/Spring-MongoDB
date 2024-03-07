@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  api:
+    container_name: movies-backend
+    build: ./movies-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - /movies-backend/.env
+
+  react:
+    container_name: movies-frontend
+    build: ./movie-frontend
+    ports:
+      - "3000:3000"
