@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeb0c0cb-831d-48c7-992b-5b89b15ee652" name="Changes" comment="Uploading backend project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="Moving project">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Movies-project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie-frontend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/movies-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/movies-backend/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,29 +29,25 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2XqPuN7k6iApsASBW8bQtQmZYyb" />
+  <component name="ProjectId" id="2XgdKVmgZLoaFA40CUupTG6YpFU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MoviesBackendApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "18",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Kalin/Documents/IntelliJ/Spring-MongoDB/Movies-project/movies-backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -50,133 +56,75 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Kalin\Documents\IntelliJ\Spring-MongoDB\Movies-project\movies-backend\src\main\java\com\example\moviesbackend" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kalin\Documents\IntelliJ\Spring-MongoDB\Movies-project" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/movie-frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Spring-MongoDB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Spring-MongoDB" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoviesBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/movies-backend/.env" />
+      </option>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="movies-backend" />
+      <selectedOptions>
+        <option name="environmentVariables" />
+      </selectedOptions>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.moviesbackend.MoviesBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-18.0.2-corretto-18.0.2-3183f394aec4-38982a12" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aeb0c0cb-831d-48c7-992b-5b89b15ee652" name="Changes" comment="" />
-      <created>1699353858944</created>
+      <changelist id="a3dbe159-89e8-49e0-a124-9df5660aa836" name="Changes" comment="" />
+      <created>1699054592528</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699353858944</updated>
-      <workItem from="1699353859928" duration="31000" />
-      <workItem from="1699354227031" duration="44000" />
-      <workItem from="1699354281527" duration="55000" />
-      <workItem from="1699355075292" duration="248000" />
-      <workItem from="1699355502259" duration="154000" />
-      <workItem from="1699355700507" duration="242000" />
-      <workItem from="1699356054880" duration="263000" />
-      <workItem from="1699356365071" duration="264000" />
-      <workItem from="1699356647696" duration="182000" />
-      <workItem from="1699356871327" duration="39000" />
-      <workItem from="1699357080904" duration="98000" />
-      <workItem from="1699357200485" duration="257000" />
-      <workItem from="1699357477890" duration="54000" />
-      <workItem from="1699357551338" duration="222000" />
-      <workItem from="1699357802095" duration="112000" />
-      <workItem from="1699357926107" duration="46000" />
-      <workItem from="1699357984589" duration="60000" />
-      <workItem from="1699358069722" duration="24000" />
-      <workItem from="1699365752115" duration="905000" />
-      <workItem from="1699366938760" duration="223000" />
-      <workItem from="1699367747986" duration="135000" />
-      <workItem from="1699372881342" duration="1066000" />
+      <updated>1699054592528</updated>
+      <workItem from="1699054593689" duration="24000" />
+      <workItem from="1699353502572" duration="147000" />
+      <workItem from="1700225088729" duration="127000" />
+      <workItem from="1709824310496" duration="102000" />
     </task>
-    <task id="LOCAL-00001" summary="commit">
+    <task id="LOCAL-00001" summary="Moving project">
       <option name="closed" value="true" />
-      <created>1699355582767</created>
+      <created>1699353569516</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1699355582767</updated>
+      <updated>1699353569516</updated>
     </task>
-    <task id="LOCAL-00002" summary="Renaming backend project directory">
-      <option name="closed" value="true" />
-      <created>1699355841387</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1699355841387</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Renaming backend project directory">
-      <option name="closed" value="true" />
-      <created>1699355883968</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1699355883968</updated>
-    </task>
-    <task id="LOCAL-00004" summary="removing project">
-      <option name="closed" value="true" />
-      <created>1699357877386</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1699357877386</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Uploading project">
-      <option name="closed" value="true" />
-      <created>1699358019733</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1699358019733</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Deleting backend project">
-      <option name="closed" value="true" />
-      <created>1699366261117</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1699366261117</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Uploading backend project">
-      <option name="closed" value="true" />
-      <created>1699367821600</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1699367821600</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
-    <MESSAGE value="Renaming backend project directory" />
-    <MESSAGE value="removing project" />
-    <MESSAGE value="Uploading project" />
-    <MESSAGE value="Deleting backend project" />
-    <MESSAGE value="Uploading backend project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uploading backend project" />
+    <MESSAGE value="Moving project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving project" />
   </component>
 </project>

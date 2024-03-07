@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Movies-project.iml" filepath="$PROJECT_DIR$/.idea/Movies-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spring-MongoDB.iml" filepath="$PROJECT_DIR$/.idea/Spring-MongoDB.iml" />
     </modules>
   </component>
 </project>
