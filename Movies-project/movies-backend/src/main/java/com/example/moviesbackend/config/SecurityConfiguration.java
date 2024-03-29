@@ -1,13 +1,12 @@
 package com.example.moviesbackend.config;
 
-import com.example.moviesbackend.jwt.JwtAuthenticationFilter;
 import com.example.moviesbackend.service.AuthenticatedUserService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
@@ -23,8 +22,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public SecurityConfiguration(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    private final AuthenticatedUserService authenticatedUserService;
+
+    public SecurityConfiguration(JwtAuthenticationFilter jwtAuthenticationFilter, AuthenticatedUserService authenticatedUserService) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.authenticatedUserService = authenticatedUserService;
     }
 
     @Bean
@@ -34,7 +36,7 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 //                        .requestMatchers("/api/v1/reviews", "/api/v1/movies", "/api/v1/auth/**").permitAll()
 //                        .requestMatchers("/api/v1/movies/**").authenticated())
-                .anyRequest().permitAll())
+                        .anyRequest().permitAll())
                 .formLogin(FormLoginConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .securityMatcher("/**")
@@ -63,11 +65,13 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    AuthenticationManager authenticationManager(HttpSecurity httpSecurity, AuthenticatedUserService authenticatedUserService) throws Exception {
-        AuthenticationManagerBuilder builder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
+    AuthenticationProvider authenticationManager() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 
-        builder.userDetailsService(authenticatedUserService).passwordEncoder(passwordEncoder());
+        authenticationProvider.setUserDetailsService(authenticatedUserService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
 
-        return builder.build();
+
+        return authenticationProvider;
     }
 }

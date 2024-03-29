@@ -1,9 +1,8 @@
 package com.example.moviesbackend.service;
 
-import com.example.moviesbackend.jwt.JwtIssuer;
 import com.example.moviesbackend.model.dto.AuthenticatedUser;
 import com.example.moviesbackend.model.dto.LoginResponse;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,16 +13,16 @@ import java.util.List;
 
 @Service
 public class AuthService {
-    private final JwtIssuer jwtIssuer;
-    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
+    private final AuthenticationProvider authenticationProvider;
 
-    public AuthService(JwtIssuer jwtIssuer, AuthenticationManager authenticationManager) {
-        this.jwtIssuer = jwtIssuer;
-        this.authenticationManager = authenticationManager;
+    public AuthService(JwtService jwtService, AuthenticationProvider authenticationProvider) {
+        this.jwtService = jwtService;
+        this.authenticationProvider = authenticationProvider;
     }
 
     public LoginResponse login(String email, String password) {
-        Authentication authentication = authenticationManager.authenticate(
+        Authentication authentication = authenticationProvider.authenticate(
                 new UsernamePasswordAuthenticationToken(email, password));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -32,7 +31,7 @@ public class AuthService {
 
         List<String> roles = principal.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
 
-        String token = jwtIssuer.issue(principal.getId(), principal.getEmail(), roles);
+        String token = jwtService.generateToken(principal);
 
         return LoginResponse.builder()
                 .accessToken(token)
