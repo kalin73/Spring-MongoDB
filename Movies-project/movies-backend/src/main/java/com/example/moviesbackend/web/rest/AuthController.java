@@ -40,10 +40,12 @@ public class AuthController {
 
 
 //    @PostMapping("/login")
-//    public ResponseEntity<LoginResponse> login(@RequestBody LoginForm loginForm) {
+//    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletResponse httpResponse) {
 //        LoginResponse response = this.authService.login(loginForm.getEmail(), loginForm.getPassword());
 //
-//        return ResponseEntity.ok(response);
+//        httpResponse.addHeader("Authorization", response.getAccessToken());
+//
+//        return ResponseEntity.ok(response.getMessage());
 //    }
 
     @PostMapping("/login-error")
