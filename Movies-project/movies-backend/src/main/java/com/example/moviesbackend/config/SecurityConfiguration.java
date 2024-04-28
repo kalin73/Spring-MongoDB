@@ -40,7 +40,6 @@ public class SecurityConfiguration {
                 .formLogin(FormLoginConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .securityMatcher("/**")
-                .cors(Customizer.withDefaults())
                 .csrf(CsrfConfigurer::disable);
 
         return httpSecurity.build();
