@@ -15,4 +15,12 @@ public class StudentService {
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
+
+    public String deleteStudent(String email) {
+        long count = this.studentRepository.count();
+
+        studentRepository.deleteStudentByEmail(email);
+
+        return count > this.studentRepository.count() ? "Deleted" : "Not found";
+    }
 }
