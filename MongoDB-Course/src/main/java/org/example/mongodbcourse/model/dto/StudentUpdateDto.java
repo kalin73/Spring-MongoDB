@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.mongodbcourse.model.entity.Address;
-import org.example.mongodbcourse.model.enums.Gender;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,7 +19,7 @@ public class StudentUpdateDto {
 
     private String email;
 
-    private Gender gender;
+    private String gender;
 
     private Address address;
 

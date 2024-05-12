@@ -1,6 +1,7 @@
 package org.example.mongodbcourse.web;
 
 import lombok.RequiredArgsConstructor;
+import org.example.mongodbcourse.model.dto.StudentUpdateDto;
 import org.example.mongodbcourse.model.entity.Student;
 import org.example.mongodbcourse.service.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -21,5 +22,10 @@ public class StudentController {
     @DeleteMapping("/{email}")
     public String deleteStudent(@PathVariable(name = "email") String email) {
         return this.studentService.deleteStudent(email);
+    }
+
+    @PatchMapping
+    public Student updateStudent(@RequestBody StudentUpdateDto student) {
+        return this.studentService.updateStudent(student);
     }
 }
