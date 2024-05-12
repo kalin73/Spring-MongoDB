@@ -19,13 +19,18 @@ public class StudentController {
         return this.studentService.getAllStudents();
     }
 
-    @DeleteMapping("/{email}")
-    public String deleteStudent(@PathVariable(name = "email") String email) {
-        return this.studentService.deleteStudent(email);
+    @PostMapping
+    public String addStudent(@RequestBody StudentUpdateDto studentUpdateDto) {
+        return this.studentService.addStudent(studentUpdateDto);
     }
 
     @PatchMapping
     public Student updateStudent(@RequestBody StudentUpdateDto student) {
-        return this.studentService.updateStudent(student);
+        return this.studentService.updateStudentInfo(student);
+    }
+
+    @DeleteMapping("/{email}")
+    public String deleteStudent(@PathVariable(name = "email") String email) {
+        return this.studentService.deleteStudent(email);
     }
 }
