@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentRegisterDto {
+public class StudentUpdateDto {
     private String firstName;
 
     private String lastName;
