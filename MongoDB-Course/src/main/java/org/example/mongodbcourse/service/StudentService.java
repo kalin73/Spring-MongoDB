@@ -6,6 +6,10 @@ import org.example.mongodbcourse.model.entity.Student;
 import org.example.mongodbcourse.model.enums.Gender;
 import org.example.mongodbcourse.repository.StudentRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,6 +20,7 @@ import java.util.List;
 public class StudentService {
     private final StudentRepository studentRepository;
     private final ModelMapper modelMapper;
+    private final MongoTemplate mongoTemplate;
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
@@ -46,8 +51,17 @@ public class StudentService {
     }
 
     public Student updateStudentInfo(StudentUpdateDto studentUpdateDto) {
-        return this.studentRepository.save(updateStudent(studentUpdateDto,
-                this.studentRepository.findStudentByEmail(studentUpdateDto.getEmail()).get()));
+        mongoTemplate.update(Student.class)
+                .matching(new Query().addCriteria(Criteria.where("email").is(studentUpdateDto.getEmail())))
+                .apply(new Update().set("firstName", studentUpdateDto.getFirstName())
+                        .set("lastName", studentUpdateDto.getLastName())
+                        .set("gender", studentUpdateDto.getGender().toUpperCase())
+                        .set("address", studentUpdateDto.getAddress())
+                        .set("favouriteSubjects", studentUpdateDto.getFavouriteSubjects())
+                        .set("totalSpentInBooks", studentUpdateDto.getTotalSpentInBooks()))
+                .first();
+
+        return this.studentRepository.findStudentByEmail(studentUpdateDto.getEmail()).get();
     }
 
     private Student updateStudent(StudentUpdateDto studentUpdateDto, Student student) {
