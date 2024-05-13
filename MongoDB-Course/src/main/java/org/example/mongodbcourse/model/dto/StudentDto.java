@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentUpdateDto {
+public class StudentDto {
     private String firstName;
 
     private String lastName;
