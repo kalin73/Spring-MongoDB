@@ -51,6 +51,12 @@ public class StudentService {
     }
 
     public Student updateStudentInfo(StudentDto studentDto) {
+        //updateStudentWithMongoTemplate(studentDto);
+
+        return this.studentRepository.save(updateStudent(studentDto));
+    }
+
+    private void updateStudentWithMongoTemplate(StudentDto studentDto) {
         mongoTemplate.update(Student.class)
                 .matching(new Query().addCriteria(Criteria.where("email").is(studentDto.getEmail())))
                 .apply(new Update().set("firstName", studentDto.getFirstName())
@@ -60,18 +66,21 @@ public class StudentService {
                         .set("favouriteSubjects", studentDto.getFavouriteSubjects())
                         .set("totalSpentInBooks", studentDto.getTotalSpentInBooks()))
                 .first();
-
-        return this.studentRepository.findStudentByEmail(studentDto.getEmail()).get();
     }
 
-    private Student updateStudent(StudentDto studentDto, Student student) {
-        student.setEmail(studentDto.getEmail());
-        student.setFirstName(studentDto.getFirstName());
-        student.setLastName(studentDto.getLastName());
-        student.setAddress(studentDto.getAddress());
-        student.setGender(Gender.valueOf(studentDto.getGender().toUpperCase()));
-        student.setFavouriteSubjects(studentDto.getFavouriteSubjects());
-        student.setTotalSpentInBooks(studentDto.getTotalSpentInBooks());
+    private Student updateStudent(StudentDto studentDto) {
+        final String email = studentDto.getEmail();
+        final Student student = this.studentRepository.findStudentByEmail(email)
+                .orElseThrow(() -> new IllegalStateException("Student with email " + email + " already exists!"));
+
+        student.setEmail(studentDto.getEmail() != null ? studentDto.getEmail() : student.getEmail());
+        student.setFirstName(studentDto.getFirstName() != null ? studentDto.getFirstName() : student.getFirstName());
+        student.setLastName(studentDto.getLastName() != null ? studentDto.getLastName() : student.getLastName());
+        student.setAddress(studentDto.getAddress() != null ? studentDto.getAddress() : student.getAddress());
+        student.setFavouriteSubjects(studentDto.getFavouriteSubjects() != null ? studentDto.getFavouriteSubjects()
+                : student.getFavouriteSubjects());
+        student.setTotalSpentInBooks(studentDto.getTotalSpentInBooks() != null ? studentDto.getTotalSpentInBooks()
+                : student.getTotalSpentInBooks());
 
         return student;
 
