@@ -3,7 +3,6 @@ package org.example.mongodbcourse.service;
 import lombok.RequiredArgsConstructor;
 import org.example.mongodbcourse.model.dto.StudentDto;
 import org.example.mongodbcourse.model.entity.Student;
-import org.example.mongodbcourse.model.enums.Gender;
 import org.example.mongodbcourse.repository.StudentRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.mongodb.core.MongoTemplate;
