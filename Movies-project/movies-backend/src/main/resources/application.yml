@@ -27,4 +27,4 @@ spring:
       
 security:
   jwt:
-    secret-key: verysecretkeydonttellanybody
+    secret-key: 63CB4FA996B2A24AEFF971674FE11ZXC34DDFGKKKP7865I35
