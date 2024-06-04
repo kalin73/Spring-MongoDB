@@ -1,93 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Cloud MongoDB">
   <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.52">
-    <root id="1"/>
+    <root id="1">
+      <ServerVersion>7.0.11</ServerVersion>
+    </root>
     <schema id="2" parent="1" name="MoviesDB">
-      <LastIntrospectionLocalTimestamp>2024-03-29.12:31:50</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-04.20:25:49</LastIntrospectionLocalTimestamp>
     </schema>
     <schema id="3" parent="1" name="admin"/>
-    <schema id="4" parent="1" name="local"/>
-    <table id="5" parent="2" name="confirmations"/>
-    <table id="6" parent="2" name="movies"/>
-    <table id="7" parent="2" name="reviews"/>
-    <table id="8" parent="2" name="users"/>
-    <column id="9" parent="6" name="_id">
+    <schema id="4" parent="1" name="amigoscode_course"/>
+    <schema id="5" parent="1" name="local"/>
+    <table id="6" parent="2" name="confirmations"/>
+    <table id="7" parent="2" name="movies"/>
+    <table id="8" parent="2" name="reviews"/>
+    <table id="9" parent="2" name="users"/>
+    <column id="10" parent="7" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="10" parent="6" name="_class">
+    <column id="11" parent="7" name="_class">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="11" parent="6" name="genres">
+    <column id="12" parent="7" name="genres">
       <DasType>Array|2003s</DasType>
       <Position>1</Position>
     </column>
-    <column id="12" parent="6" name="poster">
+    <column id="13" parent="7" name="poster">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="13" parent="6" name="backdrops">
+    <column id="14" parent="7" name="backdrops">
       <DasType>Array|2003s</DasType>
       <Position>2</Position>
     </column>
-    <column id="14" parent="6" name="imdbId">
+    <column id="15" parent="7" name="imdbId">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
-    <column id="15" parent="6" name="releaseDate">
+    <column id="16" parent="7" name="releaseDate">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
-    <column id="16" parent="6" name="reviews">
+    <column id="17" parent="7" name="reviews">
       <DasType>Array|2003s</DasType>
       <Position>3</Position>
     </column>
-    <column id="17" parent="6" name="title">
+    <column id="18" parent="7" name="title">
       <DasType>String|12s</DasType>
       <Position>4</Position>
     </column>
-    <column id="18" parent="6" name="trailerLink">
+    <column id="19" parent="7" name="trailerLink">
       <DasType>String|12s</DasType>
       <Position>5</Position>
     </column>
-    <column id="19" parent="7" name="_id">
+    <column id="20" parent="8" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="20" parent="7" name="_class">
+    <column id="21" parent="8" name="_class">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="21" parent="7" name="body">
+    <column id="22" parent="8" name="body">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="22" parent="7" name="user">
+    <column id="23" parent="8" name="user">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="23" parent="8" name="_id">
+    <column id="24" parent="9" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="24" parent="8" name="email">
+    <column id="25" parent="9" name="email">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="25" parent="8" name="isEnabled">
+    <column id="26" parent="9" name="isEnabled">
       <DasType>Boolean|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="26" parent="8" name="username">
+    <column id="27" parent="9" name="username">
       <DasType>String|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="27" parent="8" name="_class">
+    <column id="28" parent="9" name="_class">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
-    <column id="28" parent="8" name="password">
+    <column id="29" parent="9" name="password">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
