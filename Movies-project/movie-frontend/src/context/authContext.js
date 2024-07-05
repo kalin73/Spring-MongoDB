@@ -7,7 +7,6 @@ export const AuthContextProvider = ({children}) => {
     const loggedUser = async () => {
         const res = await api.get("/api/v1/loggedUser");
         setCurrentUser(res.data);
-        console.log(res.data);
     }
 
     const [currentUser, setCurrentUser] = useState(loggedUser);
