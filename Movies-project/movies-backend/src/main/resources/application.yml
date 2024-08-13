@@ -24,7 +24,3 @@ spring:
             required: true
     verify:
       host: http://localhost:8080
-      
-security:
-  jwt:
-    secret-key: 63CB4FA996B2A24AEFF971674FE11ZXC34DDFGKKKP7865I35
