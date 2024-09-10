@@ -6,11 +6,8 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AuthService {
@@ -23,7 +20,7 @@ public class AuthService {
     }
 
     public LoginResponse login(String email, String password) {
-        String loginStatusMessage = "";
+        String loginStatusMessage;
         Authentication authentication = null;
 
         try {
@@ -38,9 +35,8 @@ public class AuthService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        assert authentication != null;
         AuthenticatedUser principal = (AuthenticatedUser) authentication.getPrincipal();
-
-        List<String> roles = principal.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
 
         String token = jwtService.generateToken(principal);
 
