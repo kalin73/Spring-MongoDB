@@ -17,6 +17,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import static com.example.moviesbackend.utils.Constants.FRONT_END_DOMAIN_URL;
+
 @Configuration
 public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -50,7 +52,7 @@ public class SecurityConfiguration {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000/")
+                        .allowedOrigins(FRONT_END_DOMAIN_URL)
                         .allowedMethods("*")
                         .allowCredentials(true);
             }
