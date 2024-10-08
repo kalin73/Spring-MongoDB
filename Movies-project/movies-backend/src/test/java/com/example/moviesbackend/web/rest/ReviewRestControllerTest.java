@@ -27,12 +27,9 @@ public class ReviewRestControllerTest {
     @MockBean
     private ReviewService reviewService;
 
-    private ObjectId objectId;
-
     @BeforeEach
     public void setUp() {
-        objectId = ObjectId.get();
-        when(reviewService.createReview(anyString(), anyString())).thenReturn(new ReviewDto(objectId, "Pesho", "Good movie!"));
+        when(reviewService.createReview(anyString(), anyString())).thenReturn(new ReviewDto(ObjectId.get(), "Pesho", "Good movie!"));
     }
 
     @Test
@@ -47,5 +44,18 @@ public class ReviewRestControllerTest {
                         """))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.body").value("Good movie!"));
+    }
+
+    @Test
+    public void testCreateReviewWithNoReviewBody() throws Exception {
+        mockMvc.perform(post("/api/v1/reviews")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                        {
+                          "reviewBody": "",
+                          "imdbId": "qwe"
+                        }
+                        """))
+                .andExpect(status().isBadRequest());
     }
 }
