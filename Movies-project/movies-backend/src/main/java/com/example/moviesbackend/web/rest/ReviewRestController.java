@@ -20,6 +20,10 @@ public class ReviewRestController {
 
     @PostMapping
     public ResponseEntity<ReviewDto> create(@RequestBody Map<String, String> payload) {
+        if (payload.isEmpty() || payload.get("reviewBody").isBlank() || payload.get("imdbId").isBlank()) {
+            return ResponseEntity.badRequest().build();
+        }
+
         return ResponseEntity.created(URI.create("")).body(this.reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")));
     }
 }
