@@ -42,7 +42,11 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserDto> login(@RequestBody LoginForm loginForm) {
+    public ResponseEntity<Object> login(@RequestBody @Validated LoginForm loginForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body("Invalid username or password");
+        }
+
         return ResponseEntity.ok(this.userService.loginUser(loginForm));
     }
 
