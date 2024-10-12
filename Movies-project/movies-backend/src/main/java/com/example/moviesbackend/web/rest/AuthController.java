@@ -65,17 +65,6 @@ public class AuthController {
 //        return ResponseEntity.ok(response.getMessage());
 //    }
 
-    @PostMapping("/login-error")
-    public String loginError() {
-        return "notexists";
-    }
-
-    @GetMapping("/logoutSuccess")
-    public ResponseEntity<String> successfulLogout() {
-        return ResponseEntity.ok("Logged out!");
-    }
-
-
 //    @PostMapping("/login")
 //    public ResponseEntity<String> login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
 //        try {
