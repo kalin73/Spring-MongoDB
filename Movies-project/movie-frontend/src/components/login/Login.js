@@ -69,6 +69,7 @@ function Login() {
                 <div className="input-group">
                     <input
                         type="submit"
+                        value="Login"
                         onClick={submit}/>
                 </div>
             </form>
