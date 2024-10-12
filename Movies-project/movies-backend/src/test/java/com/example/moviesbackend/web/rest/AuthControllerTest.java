@@ -13,9 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -33,6 +32,7 @@ public class AuthControllerTest {
     public void setUp() {
         when(userService.registerUser(any())).thenReturn("registered");
         when(userService.loginUser(any())).thenReturn(new UserDto("kalin", "kalin@abv.bg", true));
+        when(userService.logOut()).thenReturn(new UserDto("Anonymous", "anonymous@abv.bg", false));
     }
 
     @Test
@@ -90,5 +90,14 @@ public class AuthControllerTest {
                                 """))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$").value("Invalid username or password"));
+    }
+
+    @Test
+    public void testLogout() throws Exception {
+        mockMvc.perform(get("/api/v1/auth/logout")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.username").value("Anonymous"))
+                .andExpect(jsonPath("$.email").value("anonymous@abv.bg"));
     }
 }
