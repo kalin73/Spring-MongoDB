@@ -12,9 +12,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -33,6 +36,7 @@ public class AuthControllerTest {
         when(userService.registerUser(any())).thenReturn("registered");
         when(userService.loginUser(any())).thenReturn(new UserDto("kalin", "kalin@abv.bg", true));
         when(userService.logOut()).thenReturn(new UserDto("Anonymous", "anonymous@abv.bg", false));
+        doNothing().when(userService).verifyToken(any());
     }
 
     @Test
@@ -99,5 +103,13 @@ public class AuthControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("Anonymous"))
                 .andExpect(jsonPath("$.email").value("anonymous@abv.bg"));
+    }
+
+    @Test
+    public void testVerifyToken() throws Exception {
+        mockMvc.perform(get("/api/v1/auth")
+                        .param("token", "token"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").value("Verified"));
     }
 }
