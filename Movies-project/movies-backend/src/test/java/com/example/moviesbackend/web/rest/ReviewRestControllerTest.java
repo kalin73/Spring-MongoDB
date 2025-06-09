@@ -35,13 +35,13 @@ public class ReviewRestControllerTest {
     @Test
     public void testCreateReview() throws Exception {
         mockMvc.perform(post("/api/v1/reviews")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("""
-                        {
-                          "reviewBody": "Good movie!",
-                          "imdbId": "qwe"
-                        }
-                        """))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "reviewBody": "Good movie!",
+                                  "imdbId": "qwe"
+                                }
+                                """))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.body").value("Good movie!"));
     }
@@ -49,13 +49,36 @@ public class ReviewRestControllerTest {
     @Test
     public void testCreateReviewWithNoReviewBody() throws Exception {
         mockMvc.perform(post("/api/v1/reviews")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("""
-                        {
-                          "reviewBody": "",
-                          "imdbId": "qwe"
-                        }
-                        """))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "reviewBody": "",
+                                  "imdbId": "qwe"
+                                }
+                                """))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testCreateReviewWithNoImdbId() throws Exception {
+        mockMvc.perform(post("/api/v1/reviews")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "reviewBody": "Good movie!",
+                                  "imdbId": ""
+                                }
+                                """))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testCreateReviewWithoutBody() throws Exception {
+        mockMvc.perform(post("/api/v1/reviews")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {}
+                                """))
                 .andExpect(status().isBadRequest());
     }
 }
